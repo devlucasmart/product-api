@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  postgresql:
+    container_name: product-db
+    image: 'bitnami/postgresql:13-debian-12'
+    environment:
+      - POSTGRESQL_USERNAME=user
+      - POSTGRESQL_PASSWORD=user
+      - POSTGRESQL_DATABASE=product-db
+    ports:
+      - '5433:5432'
+    volumes:
+      - 'product_db_data:/bitnami/postgresql'
+volumes:
+   product_db_data:
+    driver: local
